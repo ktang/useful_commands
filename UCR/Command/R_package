@@ -1,0 +1,5 @@
+tar -czvf BSgenome.Athaliana.TAIR.06202009.tar.gz BSgenome.Athaliana.TAIR.06202009/
+
+R CMD check BSgenome.Athaliana.TAIR.06202009.tar.gz
+
+R CMD build BSgenome.Athaliana.TAIR.06202009.tar.gz

@@ -1,0 +1,7 @@
+time curl "http://www.pitt.edu/~njc23/Lecture[1-12].pdf" -o Lecture_#1.pdf
+
+
+time curl "http://leadingstrand.cshl.edu/2012/A-PLANT/Abstracts/Abstract.html" -o Abstract_1.html
+time curl "http://leadingstrand.cshl.edu/2012/A-PLANT/Abstracts/Abstract[2-84].html" -o Abstract_#1.html
+
+curl -u jkzhu:grave\!glee http://www.genomics.purdue.edu/~core/projects/JKZhu/hr00429_smRNA/002831_col-1/Unaligned_filtered/002831_col-1_ATCACG_R1_filtered.fastq | less

@@ -1,0 +1,6 @@
+/Volumes/My_Book/Fengqiu_Cao/HSZ111223_ARAnzfT_18:31:41_N=568$ 
+time tophat2 -p 6 -G /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Archives/archive-2012-03-08-18-36-47/Genes/genes.gtf -o Fengqiu_WT_thout --b2-very-sensitive --phred64-quals -r 200 /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome
+
+
+
+/Volumes/My_Book/Fengqiu_Cao/HSZ111223_ARAnzfT_18:44:32_N=569$ time tophat2 -p 6 -G /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Archives/archive-2012-03-08-18-36-47/Genes/genes.gtf -o Fengqiu_WT_thout --b2-very-sensitive --phred64-quals -r 200 /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome CleanData/WT_L1_1.fq.gz CleanData/WT_L1_2.fq.gz 

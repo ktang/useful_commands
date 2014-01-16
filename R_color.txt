@@ -1,0 +1,5 @@
+########
+# Jacobsen Cell 2013 heatmap color
+##############
+rh = colorRampPalette ( c( rgb(240,239,225,maxColorValue=255), rgb(212,172,162,maxColorValue=255), rgb(160,78,61,maxColorValue=255), rgb(104,37,20,maxColorValue=255), rgb(42,33,26,maxColorValue=255)  ))
+> n=40; pie(rep(1,n), col= rh(n))

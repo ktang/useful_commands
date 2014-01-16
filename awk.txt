@@ -1,0 +1,55 @@
+awk 'BEGIN {x=0}{if($4>=170){x++}} END {print x}' SRR037459_vs_intergenic.pileup
+
+awk 'BEGIN {x=0} {if ($5 ~ /\+/){x++}}END{print x}' sorted_position_ID_v2_with_strands_info.txt 
+
+awk  '{OFS="\t";print $1 OFS $2 OFS $3 OFS (sprintf ("%0.10u", $4)) OFS (sprintf ("%0.10u", $5)) OFS $6 OFS $7 OFS $8 OFS $9;};'
+
+time awk '{if ($2 == 1) {print $0}}' probe_4mismatch_hit_num.txt > one_hit.txt
+
+
+awk 'BEGIN {x=0} {x+=$4} END {print x} ' rdd_hyper_v1.4_WinSize500_gap1000_initialCutoff5_reportCutoff5.txt 
+205357
+
+
+less ros1_1_hyper_P0.01_reduced_boundary_both_depth100_WinSize1000_gap1000_initialCutoff5_reportCutoff10_annotated_TAIR10.txt | perl -F"\t" -lane 'print $F[7]' | less
+
+perl -F"\t" -lane 'print $F[7]' 
+
+
+
+change ^M
+perl -pi -e 's/\r/\n/g' <filename>
+
+
+#hash
+
+#get fastq length distribution for siRNA
+
+cnt[$1]
+cat *fq | awk '{if(NR%4==2) cnt[length($1)] ++} END { for (x in cnt){print x,cnt[x]} }' 
+
+fq
+| awk '{if(NR%4==2) cnt[length($1)] ++} END { for (x in cnt){print x,cnt[x]} }'  | sort -k1,1n | perl -lane 'print join("\t", @F)' | less
+
+fa
+| awk '{if(NR%2 == 0) cnt[length($1)] ++} END { for (x in cnt){print x,cnt[x]} }'  | sort -k1,1n | perl -lane 'print join("\t", @F)' | less
+
+
+| awk ' { if(NR % 4 == 1 ) { sub( /@/, ">", $1 ) ; print $1 } if(NR % 4 ==2) {print} } ' |  fastx_trimmer -t 27 | fastx_clipper -a TGGAATTCTCGGGTGCCA -l 20 -c -v  | less 
+
+/Volumes/My_Book/20120226_YanJun_sRNA/clean_fa_16:40:42_N=512$ time zcat ../fq_gz/002831_col-1_ATCACG_L001_R1_001.fastq.gz ../fq_gz/002831_col-1_ATCACG_L002_R1_001.fastq.gz |  awk ' { if(NR % 4 == 1 ) { sub( /@/, ">", $1 ) ; print $1 } if(NR % 4 ==2) {print} } ' |  fastx_clipper -a TGGAATTCTCGGGTGCCA -l 18 -c -v -o YanJun_002831_col-1_sRNA_clean_min18.fa
+
+
+~/misc/Huiming_Zhang/15_20130912_sRNA_without_methylation_project/excluding_overlaped_structualRNA_reads/display_simple_bam_ln_11:03:36_N=516$ 
+samtools depth -r Chr1:1-10 *bam | awk '{for (i = 3; i<=13; i++){a[i]+=$i}} END{for (x in a){print a[x]}}'
+
+
+#########
+# cal mean and median
+######################
+sort -n file | awk ' { a[i++]=$1;  s+=$1 }   END { mean = s/i; print "mean:", mean; x=int((i+1)/2); if (x < (i+1)/2) print (a[x-1]+a[x])/2; else print a[x-1]; }'
+
+sort -g | awk ' { a[i++]=$1;  s+=$1 }   END { print i;mean = s/i; print "mean:", mean; print a[int(i*0.75)]; print a[int(i/2)]; print a[int(i*0.25)];}'
+awk ' BEGIN{OFS = "\t" } { a[i++]=$1;  s+=$1 }   END { mean = s/i; print i, mean, a[int(i*0.75)], a[int(i/2)], a[int(i*0.25)];}'
+
+ | perl -F"\t" -lane 'BEGIN{ $l_chr= "0", $l_end = "1" } { if($F[0] eq $l_chr){ print $F[1] - $l_end   }  $l_chr= $F[0], $l_end = $F[2]   }' | sort -g | awk ' BEGIN{OFS = "\t" } { a[i++]=$1;  s+=$1 }   END { mean = s/i; print i, mean, a[int(i*0.75)], a[int(i/2)], a[int(i*0.25)];}'

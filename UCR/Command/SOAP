@@ -1,0 +1,8 @@
+./soap -v 0 -M 0 -r 1 -D /mnt/disk2/kai/arabidopsis_index/intergenic_index/TAIR9_intergenic_20090619.index -a /mnt/disk2/kai/analysis_xingyu/rnd_for_soap/flowcell45_laneXXXXXXXXX_rnd -o /mnt/disk2/kai/analysis_xingyu/soap_intergenic/report_one/laneXXXXXXXXXXX
+
+
+
+
+
+
+./soap -v 1 -M 1 -r 1 -D /mnt/disk2/kai/arabidopsis_index/intergenic_index/TAIR9_intergenic_20090619.index -a /mnt/disk2/kai/analysis_xingyu/rnd_for_soap/flowcell45_laneXXXXXXXXX_rnd -o /mnt/disk2/kai/analysis_xingyu/soap_intergenic/report_one/laneXXXXXXXXXXX

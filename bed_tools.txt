@@ -1,0 +1,2 @@
+~/misc/Chengguo_Duan/2_nucleosome_analysis/results/TE_length_11:29:21_N=517$ 
+time closestBed  -a ros1_4_target_TE_info_Chr.bed -b ~/DataBase/TAIR10/GFF/TAIR10_GFF3_protein_coding_gene_loci.gff  -d | less | perl -lane 'print join("\t",(@F[0..5],$F[24], $F[19], $F[20], $F[22], $F[25] ))' > ros1_4_target_TE_closet_protein_coding_gene.txt

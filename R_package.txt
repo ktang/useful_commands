@@ -1,0 +1,43 @@
+R CMD INSTALL pkg_0.1.tar.gz
+
+vignette
+
+legend = c( expression(italic("ibm1")), expression(italic("edm2")), expression(italic("rdd"))  )
+
+tar -czvf BSgenome.Athaliana.TAIR.06202009.tar.gz BSgenome.Athaliana.TAIR.06202009/
+
+R CMD check BSgenome.Athaliana.TAIR.06202009.tar.gz
+
+R CMD build BSgenome.Athaliana.TAIR.06202009.tar.gz
+
+
+1, italic
+legend(-120, -4,legend=c("Col-0 WT", expression(italic("idm1-1")), expression(italic("rdd")), expression("HiSeq2000 " * italic("ros1-4"))  ),
+col = c(color_WT, color_idm1, color_rdd, color_ros1 ), lwd = 3, bty = "n",ncol = 4, cex = 1.4)
+
+
+2, las
+numeric in {0,1,2,3}; the style of axis labels.
+
+0:
+always parallel to the axis [default],
+
+1:
+always horizontal,
+
+2:
+always perpendicular to the axis,
+
+3:
+always vertical.
+
+ 
+
+mar
+A numerical vector of the form c(bottom, left, top, right) which gives the number of lines of margin to be specified on the four sides of the plot. The default is c(5, 4, 4, 2) + 0.1.
+
+mgp
+The margin line (in mex units) for the axis title, axis labels and axis line. Note that mgp[1] affects title whereas mgp[2:3] affect axis. The default is c(3, 1, 0).
+
+cex.axis
+= 1e-10	control the tick mark label size

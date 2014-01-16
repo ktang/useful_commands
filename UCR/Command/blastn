@@ -1,0 +1,15 @@
+./makeblastdb -dbtype nucl -in /mnt/disk2/kai/arabidopsis_index/cdna_index/C24/cdna_C24.fasta -out /mnt/disk2/kai/arabidopsis_index/cdna_index/C24/C24_blast_db/C24
+
+
+./blastn -db /mnt/disk2/kai/arabidopsis_index/cdna_index/C24/C24_blast_db/C24 -task blastn -query /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619 -out /mnt/disk2/kai/arabidopsis_index/cdna_index/Col0_vs_C24.blastn_output -evalue 1e-10 -num_alignments 1 -max_target_seqs 1 -outfmt 6
+
+
+blastn -task blastn -query C24_first_transcript -subject Col0_first_transcript -out temp_bl2seq_output -outfmt 6
+
+
+blastn -db /mnt/disk2/kai/arabidopsis_index/cdna_index/C24/cdna_C24.fasta -task blastn -query /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619 -out col_name_ofBlastoutput -outfmt 7
+
+cd /mnt/disk2/kai/arabidopsis_index/cdna_index/May_14_blast
+
+
+cd /mnt/disk2/kai/arabidopsis_index/cdna_index/C24/C24_blast_db/

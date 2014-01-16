@@ -1,0 +1,4 @@
+time zcat ../raw_fq/nrpd1.fq.gz | fastx_trimmer -f4 -l37 |  fastx_clipper -a CTGTAGGCAC -l 18 -c -v | fastq_to_fasta -v  -o nrpd1_clean_18_32.fa
+-c: Discard non-clipped sequences (i.e. - keep only sequences which contained the adapter).
+
+at least 4nt in adapter

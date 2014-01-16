@@ -1,0 +1,40 @@
+bowtie2 -t -p 4 -k 2 --phred33 --sensitive  -I 0 -X 1000 -x /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome -1 ln_fq/19_MBD7_Input_rep1_L5_R1.fq.gz -2 ln_fq/19_MBD7_Input_rep1_L5_R2.fq.gz
+ 2>> bowtie2_out/19_MBD7_Input_rep1_L5_log.txt
+ | perl -lane 'if(/^@/) {print} else{print if ($F[4] == 255 and $F[-1] eq "YT:Z:CP")}'   
+| samtools view -b -S - > bowtie2_out/19_MBD7_Input_rep1_L5_bowtie2_CP.bam
+
+
+# perl -lane 'print if($F[2] ne "*")' | samtools view -b -S -  > try.bam
+
+
+compare --very-fast and --very-sensitive
+
+bowtie2 -t -p 4 -k 10 --phred33 --very-sensitive --no-mixed --no-discordant -I 0 -X 1000 -x /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome -1 ../ln_fq/7_WT_Myc_ChIP_rep2_L2_R1.fq.gz -2 ../ln_fq/7_WT_Myc_ChIP_rep2_L2_R2.fq.gz 2>> ./7_WT_Myc_ChIP_rep2_L2_log.txt | perl -lane ' print if( $F[2] ne "*")' | samtools view -b -S - > ./7_WT_Myc_ChIP_rep2_L2_bowtie2_CP_k10.bam
+Time loading reference: 00:00:00
+Time loading forward index: 00:00:00
+Time loading mirror index: 00:00:00
+Multiseed full-index search: 00:18:21
+3878579 reads; of these:
+  3878579 (100.00%) were paired; of these:
+    1694160 (43.68%) aligned concordantly 0 times
+    1148041 (29.60%) aligned concordantly exactly 1 time
+    1036378 (26.72%) aligned concordantly >1 times
+56.32% overall alignment rate
+Time searching: 00:18:21
+Overall time: 00:18:21
+
+
+time bowtie2 -t -p 4 -k 10 --phred33 --very-fast --no-mixed --no-discordant -I 0 -X 1000 -x /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome -1 ../ln_fq/7_WT_Myc_ChIP_rep2_L2_R1.fq.gz -2 ../ln_fq/7_WT_Myc_ChIP_rep2_L2_R2.fq.gz  > /dev/null  2>> try_bowtie2_very_fast_to_see_diff.txt
+
+Time loading reference: 00:00:00
+Time loading forward index: 00:00:01
+Time loading mirror index: 00:00:01
+Multiseed full-index search: 00:13:46
+3878579 reads; of these:
+  3878579 (100.00%) were paired; of these:
+    1703963 (43.93%) aligned concordantly 0 times
+    1164115 (30.01%) aligned concordantly exactly 1 time
+    1010501 (26.05%) aligned concordantly >1 times
+56.07% overall alignment rate
+Time searching: 00:13:48
+Overall time: 00:13:48

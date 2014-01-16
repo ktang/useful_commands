@@ -1,0 +1,57 @@
+library(easyRNASeq)
+setwd("/Users/tang58/try/debug/easyRNASeq")
+c.table1 = easyRNASeq(filesDirectory= "." ,
+                          pattern="10000_rrp6l1_tophat.bam$",
+                        #  readLength=30L,
+                          organism="Athaliana",
+                          annotationMethod="gtf",
+                          annotationFile="genes.gtf",
+                          count="genes",
+			  summarization = "geneModels"
+                          )
+######################################################################
+setwd("/Volumes/My_Book/20130423_35S_SUC2_background_RNA_Seq/DESeq")
+ x = read.table("featureCounts_output_p.txt", header=T, row.names=1)
+countData = x[,8:9]
+colnames(countData)= c("mbd7", "MGWT")
+colData = data.frame(row.names = colnames(countData), condition = c("mut", "WT"), type = c( "paired-end", "paired-end") )
+
+dds <- DESeqDataSetFromMatrix(countData = countData, colData = colData,design = ~ condition)
+
+date()
+dds <- DESeq(dds)
+date()res <- results(dds)
+date()res <- res[order(res$padj),] 
+res_p =  res[order(res$pvalue),] 
+date()
+
+write.table(as.data.frame(res), "mbd7_DESeq2_res.txt", quote=F,sep="\t")
+################
+> date()
+[1] "Thu Dec 19 15:56:18 2013"
+> dds <- DESeq(dds)
+estimating size factors
+estimating dispersions
+same number of samples and coefficients to fit, estimating dispersion by treating samples as replicates
+gene-wise dispersion estimates
+mean-dispersion relationship
+final dispersion estimates
+fitting model and testing
+> date()
+[1] "Thu Dec 19 15:56:29 2013"
+> res <- results(dds) # res = res[base::order(res$padj),]
+> date()
+[1] "Thu Dec 19 15:56:29 2013"
+> res <- res[order(res$padj),]
+> date()
+[1] "Thu Dec 19 15:56:29 2013"
+
+> colData_v
+             condition        type
+treated1fb     treated single-read
+treated2fb     treated  paired-end
+treated3fb     treated  paired-end
+untreated1fb untreated single-read
+untreated2fb untreated single-read
+untreated3fb untreated  paired-end
+untreated4fb untreated  paired-end

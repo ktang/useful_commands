@@ -1,0 +1,14 @@
+latex foo.tex
+xdvi foo.dvi&
+dvips -Pcm2 foo.dvi -o foo.ps
+dvipdf foo.dvi
+
+pdflatex foo.tex
+
+latex Oct21_Kai_weekly_report.tex ;dvips Oct21_Kai_weekly_report.dvi; ps2pdf Oct21_Kai_weekly_report.ps
+##############################
+# include pub
+####################
+latex Tom_T_Texblog.tex 
+bibtex Tom_T_Texblog.aux 
+pdflatex Tom_T_Texblog.tex 

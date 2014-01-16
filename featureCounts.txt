@@ -1,0 +1,109 @@
+/Volumes/My_Book/20130423_35S_SUC2_background_RNA_Seq/DESeq_22:57:08_N=504$time featureCounts -T 4 -p  -t exon -g gene_id  -o featureCounts_output_p.txt -a genes.gtf 41_MG-35_L1_thout.bam asi1_58-2_thout.bam mbd7_91-2_thout.bam WT_MG_62_thout.bam
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+        v1.4.3-p1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 4 BAM files                                      ||
+||                           o 41_MG-35_L1_thout.bam                          ||
+||                           o asi1_58-2_thout.bam                            ||
+||                           o mbd7_91-2_thout.bam                            ||
+||                           o WT_MG_62_thout.bam                             ||
+||                                                                            ||
+||             Output file : featureCounts_output_p.txt                       ||
+||             Annotations : genes.gtf (GTF)                                  ||
+||                                                                            ||
+||                 Threads : 4                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||         Strand specific : no                                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\===================== http://subread.sourceforge.net/ ======================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file genes.gtf ...                                         ||
+||    Number of features is 217183                                            ||
+||    Number of meta-features is 33602                                        ||
+||    Number of chromosomes is 7                                              ||
+||                                                                            ||
+|| Process BAM file 41_MG-35_L1_thout.bam...                                  ||
+||    Assign fragments (read pairs) to features...                            ||
+||    Each fragment is counted once.                                          ||
+||    Found reads that are not properly paired.                               ||
+||    (missing mate or the mate is not the next read)                         ||
+||    1890986 reads have missing mates.                                       ||
+||    Input was converted to a format accepted by featureCounts.              ||
+||    Total number of fragments is : 25023005                                 ||
+||    Number of successfully assigned fragments is : 23111570 (92.4%)         ||
+||    Running time : 31.73 minutes                                            ||
+||                                                                            ||
+|| Process BAM file asi1_58-2_thout.bam...                                    ||
+||    Assign fragments (read pairs) to features...                            ||
+||    Each fragment is counted once.                                          ||
+||    Found reads that are not properly paired.                               ||
+||    (missing mate or the mate is not the next read)                         ||
+||    1324573 reads have missing mates.                                       ||
+||    Input was converted to a format accepted by featureCounts.              ||
+||    Total number of fragments is : 28121410                                 ||
+||    Number of successfully assigned fragments is : 25318154 (90.0%)         ||
+||    Running time : 38.67 minutes                                            ||
+||                                                                            ||
+|| Process BAM file mbd7_91-2_thout.bam...                                    ||
+||    Assign fragments (read pairs) to features...                            ||
+||    Each fragment is counted once.                                          ||
+||    Found reads that are not properly paired.                               ||
+||    (missing mate or the mate is not the next read)                         ||
+||    1258697 reads have missing mates.                                       ||
+||    Input was converted to a format accepted by featureCounts.              ||
+||    Total number of fragments is : 26726464                                 ||
+||    Number of successfully assigned fragments is : 24271372 (90.8%)         ||
+||    Running time : 37.15 minutes                                            ||
+||                                                                            ||
+|| Process BAM file WT_MG_62_thout.bam...                                     ||
+||    Assign fragments (read pairs) to features...                            ||
+||    Each fragment is counted once.                                          ||
+||    Found reads that are not properly paired.                               ||
+||    (missing mate or the mate is not the next read)                         ||
+||    1778123 reads have missing mates.                                       ||
+||    Input was converted to a format accepted by featureCounts.              ||
+||    Total number of fragments is : 24737277                                 ||
+||    Number of successfully assigned fragments is : 22438471 (90.7%)         ||
+||    Running time : 32.30 minutes                                            ||
+||                                                                            ||
+||                         Read assignment finished.                          ||
+||                                                                            ||
+\\===================== http://subread.sourceforge.net/ ======================//
+
+
+real	139m54.480s
+user	28m0.914s
+sys	7m15.961s
+/Volumes/My_Book/20130423_35S_SUC2_background_RNA_Seq/DESeq_01:17:18_N=505$ less featureCount_Terminal\ Saved\ Output.txt 
+/Volumes/My_Book/20130423_35S_SUC2_background_RNA_Seq/DESeq_10:45:33_N=506$ time samtools flagstat WT_MG_62_thout.bam
+47715720 + 0 in total (QC-passed reads + QC-failed reads)
+0 + 0 duplicates
+47715720 + 0 mapped (100.00%:nan%)
+47715720 + 0 paired in sequencing
+23948557 + 0 read1
+23767163 + 0 read2
+43542000 + 0 properly paired (91.25%:nan%)
+45955340 + 0 with itself and mate mapped
+1760380 + 0 singletons (3.69%:nan%)
+42440 + 0 with mate mapped to a different chr
+21510 + 0 with mate mapped to a different chr (mapQ>=5)
+
+real	4m50.475s
+user	0m42.133s
+sys	0m2.511s
+/Volumes/My_Book/20130423_35S_SUC2_background_RNA_Seq/DESeq_10:55:06_N=507$ 

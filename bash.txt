@@ -1,0 +1,48 @@
+awk 'BEGIN {x=0}{if($4>=170){x++}} END {print x}' SRR037459_vs_intergenic.pileup
+
+awk 'BEGIN {x=0} {if ($5 ~ /\+/){x++}}END{print x}' sorted_position_ID_v2_with_strands_info.txt 
+
+awk  '{OFS="\t";print $1 OFS $2 OFS $3 OFS (sprintf ("%0.10u", $4)) OFS (sprintf ("%0.10u", $5)) OFS $6 OFS $7 OFS $8 OFS $9;};'
+ 
+find path.. -name file_name -print
+
+
+~/try/temp_21:54:43_N=512$ scp -r kai@138.23.178.43:/mnt/disk2/kai/temp .
+
+
+time curl "http://ansari.iut.ac.ir/ebooks/[4-83].pdf" -o ebook_#1.pdf
+
+
+for f in *.gz; do echo mv $f `echo $f | perl -ne  's/_[ACTG]{6,6}_L00[12]//; print'` ; done
+
+
+for i in *.txt; do echo cp $i ${i/\.txt/\.xls}; done
+
+for i in *.txt; do mv $i ${i/\.txt/\.xls}; done
+
+for i in *.txt; do echo -e "\n" >> $i ; done
+
+add \n in last part
+for i in *.txt; do echo  >> $i ; done
+
+for i in *; do sort -u ${i} | wc -l  ; done
+for i in *; do less ${i} | cut -c1-11 | sort -u | wc -l  ; done
+
+for i in *a; do echo ${i}; grep '>' ${i} | wc -l  ; done
+for i in *; do echo ${i}; grep '>' ${i} | wc -l  ; done
+
+for i in *.gz; do echo mv $i ${i/CTCAGA_L007_R1/sRNA-Seq}; done
+for i in *.gz; do echo mv $i ${i/L/l}; done
+for i in *.gz; do echo mv $i ${i/ast/}; done
+
+for i in dm*; do echo mv $i ${i/dm16/rdm16}; done
+
+ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131225_S". $1. ".fq.gz")) } ' | xargs -n 2 mv
+ls *gz | perl -lane ' if ( /(^\S+)_S(\d)_(\S+)/ ) {  print join(" ", ($_,  $1 . "_S0" . $2 . "_" . $3  ))  }  ' | xargs -n 2 mv
+
+#-q
+time fastqc -o ../FastQC_upload2/ --nogroup -f fastq -t 8 *gz
+
+
+time wget --user=jkzhu --password=grave\!glee https://genomics.rcac.purdue.edu/users/JKZhu/hr00562_E-2172/004688_E-2172/Mapping/004688_E-2172_paired-end_vs_arabidopsis-Ensembl-TAIR10.sorted.bam
+

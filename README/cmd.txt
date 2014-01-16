@@ -1,0 +1,151 @@
+ pwd
+/Users/kaitang/Desktop/perl_code/Project_5
+
+
+#time ./BWA_batch_command_pe_vs_C24.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/268 /Users/kaitang/Desktop/Project_5/BWA_output/268_ID67_ros1_and_ros1Sup/268; 
+
+#time ./BWA_batch_command_pe_vs_C24.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane1 /Users/kaitang/Desktop/Project_5/BWA_output/268_ID67_ros1_and_ros1Sup/ros1/lane1;
+
+#time ./BWA_batch_command_pe_vs_C24.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane8 /Users/kaitang/Desktop/Project_5/BWA_output/268_ID67_ros1_and_ros1Sup/ros1/lane8;
+
+
+#time ./BWA_batch_command_pe_vs_C24.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/35_13_ID84_ros1_suppressor_mut /Users/kaitang/Desktop/Project_5/BWA_output/35_13_ID84_ros1_suppressor_mut;
+
+
+
+
+# for one
+
+#######################################
+#SE
+time  ./BWA_batch_command_vs_C24_se.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100503_HWUSI-EAS1501_0001_JKZ_AT_SR/129_2Ros1 /Users/kaitang/Desktop/Project_5/BWA_output/100503_HWUSI-EAS1501_0001_JKZ_AT_SR/129_2Ros1;
+
+time ./BWA_batch_command_pe_vs_C24.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100724_HWUSI_EAS1501_0006_61RRRAXX/30_19PairedEnd /Users/kaitang/Desktop/Project_5/BWA_output/100724_HWUSI_EAS1501_0006_61RRRAXX/30_19PairedEnd;
+
+time ./BWA_batch_command_pe_vs_C24.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100724_HWUSI_EAS1501_0006_61RRRAXX/157_1PairedEnd /Users/kaitang/Desktop/Project_5/BWA_output/100724_HWUSI_EAS1501_0006_61RRRAXX/157_1PairedEnd;
+
+
+time ./BWA_batch_command_pe_vs_C24.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100724_HWUSI_EAS1501_0006_61RRRAXX/330_15Ros1PairedEnd /Users/kaitang/Desktop/Project_5/BWA_output/100724_HWUSI_EAS1501_0006_61RRRAXX/330_15Ros1PairedEnd;
+
+
+
+
+##########################
+
+time ./BWA_batch_command_vs_C24_se.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100503_HWUSI-EAS1501_0001_JKZ_AT_SR/71_4Ros1 /Users/kaitang/Desktop/Project_5/BWA_output/100503_HWUSI-EAS1501_0001_JKZ_AT_SR/71_4Ros1;
+
+time ./BWA_batch_command_vs_C24_se.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/100511_HWUSI-EAS1501_0002_JKZ_AT_SR_110/157_1Ros1 /Users/kaitang/Desktop/Project_5/BWA_output/100511_HWUSI-EAS1501_0002_JKZ_AT_SR_110/157_1Ros1;
+
+time ./BWA_batch_command_vs_C24_se.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100511_HWUSI-EAS1501_0002_JKZ_AT_SR_110/173_14Ros1 /Users/kaitang/Desktop/Project_5/BWA_output/100511_HWUSI-EAS1501_0002_JKZ_AT_SR_110/173_14Ros1;
+
+####################################
+#create fastq
+
+time ./create_fastq_from_tar_file.pl s_5_1_ /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/orignal_files /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq5/s_5_1_Col_gl1.fastq;
+
+time ./create_fastq_from_tar_file.pl s_5_2_ /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/orignal_files /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq5/s_5_2_Col_gl1.fastq;
+
+time ./create_fastq_from_tar_file.pl s_6_1_ /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/orignal_files /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq6/s_6_1_Col_gl1.fastq;
+
+time ./create_fastq_from_tar_file.pl s_6_2_ /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/orignal_files /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq6/s_6_2_Col_gl1.fastq;
+
+time ./create_fastq_from_tar_file.pl s_7_1_ /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2 /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq7/s_7_1_ros2.fastq;
+
+time ./create_fastq_from_tar_file.pl s_7_2_ /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2 /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq7/s_7_2_ros2.fastq;
+
+time ./create_fastq_from_tar_file.pl s_8_1_ /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2 /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq8/s_8_1_ros2.fastq;
+
+time ./create_fastq_from_tar_file.pl s_8_2_ /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2 /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq8/s_8_2_ros2.fastq;
+
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+time ./BWA_batch_command_pe_vs_C24.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq5 /Users/kaitang/Desktop/Project_5/BWA_output/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/seq5;
+
+time ./BWA_batch_command_pe_vs_C24.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq6 /Users/kaitang/Desktop/Project_5/BWA_output/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/seq6;
+
+time ./BWA_batch_command_pe_vs_C24.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq7 /Users/kaitang/Desktop/Project_5/BWA_output/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/seq7;
+ 
+time ./BWA_batch_command_pe_vs_C24.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq8 /Users/kaitang/Desktop/Project_5/BWA_output/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/seq8;
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+date;
+
+#time ./change_dot_to_N_in_fastq.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq5/s_5_1_Col_gl1.fastq  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq5/s_5_1_Col_gl1_N.fastq;
+
+#time ./change_dot_to_N_in_fastq.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq5/s_5_2_Col_gl1.fastq  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq5/s_5_2_Col_gl1_N.fastq;
+
+#time ./change_dot_to_N_in_fastq.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq6/s_6_1_Col_gl1.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq6/s_6_1_Col_gl1_N.fastq;
+
+#time ./change_dot_to_N_in_fastq.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq6/s_6_2_Col_gl1.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/Col_gl1/fastq/seq6/s_6_2_Col_gl1_N.fastq;
+
+#time ./change_dot_to_N_in_fastq.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq7/s_7_1_ros2.fastq  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq7/s_7_1_ros2_N.fastq;
+
+time ./change_dot_to_N_in_fastq.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq7/s_7_2_ros2.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq7/s_7_2_ros2_N.fastq;
+
+time ./change_dot_to_N_in_fastq.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq8/s_8_1_ros2.fastq  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq8/s_8_1_ros2_N.fastq;
+
+
+
+#time ./change_dot_to_N_in_fastq.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq8/s_8_2_ros2.fastq  /Users/kaitang/Desktop/zhu_lab_data_orignal/100822_HWUSI-EAS1501_00007_61RF3AAXX_PE1/ros2/fastq/seq8/s_8_2_ros2_N.fastq;
+
+date;
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+#time ./fastq_quality_convertor.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/ros2_ID25/ros2_2/flowcell18_lane5_pair1.fastq  /Users/kaitang/Desktop/zhu_lab_data_orignal/ros2_ID25/ros2_2/flowcell18_lane5_pair1_ros2_B.fastq;
+
+date;
+
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/ros2_ID25/ros2_2/flowcell18_lane5_pair2.fastq   /Users/kaitang/Desktop/zhu_lab_data_orignal/ros2_ID25/ros2_2/flowcell18_lane5_pair2_ros2_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/ros2_ID25/ros2_1/flowcell18_lane3_pair1.fastq  /Users/kaitang/Desktop/zhu_lab_data_orignal/ros2_ID25/ros2_1/flowcell18_lane3_pair1_ros2_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/ros2_ID25/ros2_1/flowcell18_lane3_pair2.fastq   /Users/kaitang/Desktop/zhu_lab_data_orignal/ros2_ID25/ros2_1/flowcell18_lane3_pair2_ros2_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/32_ID68/flowcell41_lane6_pair1.fastq  /Users/kaitang/Desktop/zhu_lab_data_orignal/32_ID68/flowcell41_lane6_pair1_32_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/32_ID68/flowcell41_lane6_pair2.fastq  /Users/kaitang/Desktop/zhu_lab_data_orignal/32_ID68/flowcell41_lane6_pair2_32_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/35_13_ID84_ros1_suppressor_mut/flowcell41_lane5_pair2.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/35_13_ID84_ros1_suppressor_mut/flowcell41_lane5_pair2_35_13_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/35_13_ID84_ros1_suppressor_mut/flowcell41_lane5_pair1.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/35_13_ID84_ros1_suppressor_mut/flowcell41_lane5_pair1_35_13_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/268/flowcell41_lane3_pair1.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/268/flowcell41_lane3_pair1_268_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/268/flowcell41_lane3_pair2.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/268/flowcell41_lane3_pair2_268_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane1/flowcell41_lane1_pair1.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane1/flowcell41_lane1_pair1_ros1_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane1/flowcell41_lane1_pair2.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane1/flowcell41_lane1_pair2_ros1_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane8/flowcell35_lane8_pair1.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane8/flowcell35_lane8_pair1_ros1_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane8/flowcell35_lane8_pair2.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane8/flowcell35_lane8_pair2_ros1_B.fastq;
+
+date;
+
+
+date;
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/268/flowcell41_lane3_pair1.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/268/flowcell41_lane3_pair1_268_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane1/flowcell41_lane1_pair1.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane1/flowcell41_lane1_pair1_ros1_B.fastq;
+
+time ./fastq_quality_convertor.pl  /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane1/flowcell41_lane1_pair2.fastq /Users/kaitang/Desktop/zhu_lab_data_orignal/268_ID67_ros1_and_ros1Sup/ros1/lane1/flowcell41_lane1_pair2_ros1_B.fastq;
+date;
+
+
+####################################
+soap
+
+time  soap -a /Users/kaitang/Desktop/zhu_lab_data_orignal/ros2_ID25/clean_fasta_for_soap/ros2_lane3_5_pair1_clean.fasta -b /Users/kaitang/Desktop/zhu_lab_data_orignal/ros2_ID25/clean_fasta_for_soap/ros2_lane3_5_pair2_clean.fasta -D ~/Desktop/TAIR/SOAP_index/TAIR9_Chr_all_bigBegin.fas.index -o ros2_clean_fasta_PE_m0x1000n2r0v1M4.seaport -2 nothing.txt -m 0 -x 1000 -n 2 -r 0 -v 1 -M 4 
+
+SE:
+time  soap -a /Users/kaitang/Desktop/zhu_lab_data_orignal/ros2_ID25/clean_fasta_for_soap/ros2_lane3_5_single_clean.fasta -D ~/Desktop/TAIR/SOAP_index/TAIR9_Chr_all_bigBegin.fas.index -o ros2_clean_fasta_SE_n2r0v1M4.seaport -n 2 -r 0 -v 1 -M 4
+
+

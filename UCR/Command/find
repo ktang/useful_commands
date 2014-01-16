@@ -1,0 +1,7 @@
+awk 'BEGIN {x=0}{if($4>=170){x++}} END {print x}' SRR037459_vs_intergenic.pileup
+
+awk 'BEGIN {x=0} {if ($5 ~ /\+/){x++}}END{print x}' sorted_position_ID_v2_with_strands_info.txt 
+
+awk  '{OFS="\t";print $1 OFS $2 OFS $3 OFS (sprintf ("%0.10u", $4)) OFS (sprintf ("%0.10u", $5)) OFS $6 OFS $7 OFS $8 OFS $9;};'
+ 
+find path.. -name file_name -print

@@ -1,0 +1,11 @@
+bowtie 1 cannot use gz file as input
+
+cat try.fa | bowtie -t -f -p 4 -v 0 -k 100 /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/BowtieIndex/genome -f -  -S | less
+work
+
+
+perl -lane 'print if($F[2] ne "*")'
+
+zcat try.fa.gz  | bowtie -t -f -p 4 -v 0 -k 100 /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/BowtieIndex/genome -f -  -S | perl -lane 'print if($F[2] ne "*")' | samtools view -b -S -  > try.bam
+
+zcat XXXXXX.fa.gz  | bowtie -t  -p 3 -v 0 -k 100 /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/BowtieIndex/genome -f -  -S | perl -lane 'print if($F[2] ne "*")' | samtools view -b -S -  > try.bam

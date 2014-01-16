@@ -1,0 +1,21 @@
+########
+# small RNA analysis
+###############
+/Users/tang58/scripts_all/perl_code/Purdue/small_RNA_analysis
+
+
+########
+# overlap
+###############
+/Users/tang58/Kai_BS/overlap/overlap_for_files_in_two_dirs.pl
+
+/Users/tang58/Kai_BS/myown/overlap/batch_overlap_number_files_in_one_dir_v0.5.1.pl
+
+/Users/tang58/Kai_BS/myown/overlap/batch_overlap_number_files_in_one_dir_coor.pl
+
+
+
+########
+# add meth level
+###############
+time perl /Users/tang58/Kai_BS/for_publish/batch_cal_meth_level_original_mC_NotEckerSuggest/batch_cal_meth_level_for_bed_list_original_mC_NotEckerSuggest_multiple_isMeth.pl

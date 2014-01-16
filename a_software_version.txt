@@ -1,0 +1,37 @@
+Numpy 1.8.0 Nov13,2013 install #python -c "import numpy; print numpy.__version__"
+
+MACS macs2 2.0.10.20131028 (tag:beta) install on Nov13,2012 
+
+As on Dec 4:
+Bowtie 2 version 2.1.0 by Ben Langmead (langmea@cs.jhu.edu, www.cs.jhu.edu/~langmea)
+
+Bowtie
+bowtie version 1.0.0
+64-bit
+Built on ifx5.ebalto.jhmi.edu
+Tue Apr  9 19:43:10 EDT 2013
+Compiler: gcc version 4.2.1 (Apple Inc. build 5666) (dot 3)
+Options: -O3 -m64   
+Sizeof {int, long, long long, void*, size_t, off_t}: {4, 8, 8, 8, 8, 8}
+
+
+TopHat v2.0.9
+
+brat_bw 2.0.1
+
+bedtools v2.17.0
+
+samtools Version: 0.1.18 (r982:295)
+
+perl v5.12.3
+Python 2.7.1
+ruby 1.9.2p290 (2011-07-09 revision 32553) [x86_64-darwin10.8.0]
+
+
+HTSeq 0.5.4p5 Dec 18, 2013
+
+vcftools update from (v0.1.10) => v0.1.11 Dec31, 2013
+
+featureCounts  Version 1.4.3-p1  as Jan 13, 2014
+
+

@@ -1,0 +1,39 @@
+shore is in
+/Users/kaitang/Desktop/Software/SHORE_tools/shore-macosx-i386-0.5.0beta
+
+#preprocess
+
+time shore preprocess -f /Users/kaitang/Desktop/TAIR/chromosomes/5Chr_only_TAIR9_Col0.fas -i /Users/kaitang/Desktop/TAIR/index/SHORE 
+
+#import
+
+#time  shore import -v Fastq -a genomic -i 1000 -x /Users/kaitang/Desktop/zhu_lab_data_orignal/100724_HWUSI_EAS1501_0006_61RRRAXX/330_15Ros1PairedEnd/original_fastq/s_1_1_sequence.fastq -y /Users/kaitang/Desktop/zhu_lab_data_orignal/100724_HWUSI_EAS1501_0006_61RRRAXX/330_15Ros1PairedEnd/original_fastq/s_1_2_sequence.fastq -o /Users/kaitang/Desktop/Project_5/SHORE_output/100724_HWUSI_EAS1501_0006_61RRRAXX/330_15Ros1PairedEnd/import -n 1 -g -k 20 -q 20
+
+shore import: runtime error --- failed opening file for writing (0): "/Users/kaitang/Desktop/Project_5/SHORE_output/100724_HWUSI_EAS1501_0006_61RRRAXX/330_15Ros1PairedEnd/import/1/single/length_86/reads_0.fl" (Too many open files)
+
+
+
+time  shore import -v Fastq -a genomic -i 1001 -x /Users/kaitang/Desktop/zhu_lab_data_orignal/100724_HWUSI_EAS1501_0006_61RRRAXX/330_15Ros1PairedEnd/original_fastq/s_1_1_sequence.fastq -y /Users/kaitang/Desktop/zhu_lab_data_orignal/100724_HWUSI_EAS1501_0006_61RRRAXX/330_15Ros1PairedEnd/original_fastq/s_1_2_sequence.fastq -o /Users/kaitang/Desktop/Project_5/SHORE_output/100724_HWUSI_EAS1501_0006_61RRRAXX/330_15Ros1PairedEnd/import -Q illumina
+
+real	24m48.921s
+user	10m6.763s
+sys	3m33.838s
+
+## map
+
+#time shore mapflowcell -f /Users/kaitang/Desktop/Project_5/SHORE_output/100724_HWUSI_EAS1501_0006_61RRRAXX/330_15Ros1PairedEnd/import -i /Users/kaitang/Desktop/TAIR/index/SHORE/5Chr_only_TAIR9_Col0.fas.shore -n 2 -g 1 -c 2 -p -l 9 -2 --rplot --stat
+ERROR: Hitlength limit is smaller than seedlength.
+
+mapper0: runtime error --- genomemapper returned error exit status for query "/var/folders/np/npf9f3vfFEiUDvxD7oRXQk+++TI/-Tmp-//mapflowcell_aEjDMK/batch_0rvrZ0/reads_0.fl"
+Abort trap
+$$$$$$$$$$$$$$$$$$$$$
+
+time shore mapflowcell -f /Users/kaitang/Desktop/Project_5/SHORE_output/100724_HWUSI_EAS1501_0006_61RRRAXX/330_15Ros1PairedEnd/import -i /Users/kaitang/Desktop/TAIR/index/SHORE/5Chr_only_TAIR9_Col0.fas.shore -n 2 -g 1 -c 2 -p -2 --rplot --stat
+
+
+#/Users/kaitang/Desktop/Software/SHORE_tools/genomemapper/genomemapper -e -b -i /Users/kaitang/Desktop/TAIR/index/SHORE/5Chr_only_TAIR9_Col0.fas.shore -q /var/folders/np/npf9f3vfFEiUDvxD7oRXQk+++TI/-Tmp-//mapflowcell_3VyEO6/batch_7Nc2e5/reads_0.fl -o /var/folders/np/npf9f3vfFEiUDvxD7oRXQk+++TI/-Tmp-//mapflowcell_3VyEO6/batch_7Nc2e5/map.list -u /var/folders/np/npf9f3vfFEiUDvxD7oRXQk+++TI/-Tmp-//mapflowcell_3VyEO6/batch_7Nc2e5/left_over.fl -E 2 -M 2 -G 1
+
+
+###############
+#echo $TMPDIR
+#/var/folders/np/npf9f3vfFEiUDvxD7oRXQk+++TI/-Tmp-/

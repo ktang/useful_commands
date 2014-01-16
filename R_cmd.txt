@@ -1,0 +1,10 @@
+http://stackoverflow.com/questions/9789806/command-line-utility-to-print-statistics-of-numbers-in-linux
+
+R -q -e "x <- read.csv('nums.txt', header = F); summary(x); sd(x[ , 1])"
+
+Edit to add a couple of clarifying comments (because I came back to this and didn't remember some of the rationale):
+The -q flag squelches R's startup licensing and help output
+The -e flag tells R you'll be passing an expression from the terminal
+x is a data.frame - a table, basically. It's a structure that accommodates multiple vectors/columns of data, which is a little peculiar if you're just reading in a single vector. This has an impact on which functions you can use.
+Some functions, like summary(), naturally accommodate data.frames. If x had multiple fields, summary() would provide the above descriptive stats for each.
+But sd() can only take one vector at a time, which is why I index x for that command (x[ , 1] returns the first column of x). You could use apply(x, MARGIN = 2, FUN = sd) to get the SDs for all columns.

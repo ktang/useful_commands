@@ -1,0 +1,107 @@
+/mnt/disk2/kai/hybrid_RNASeq_20100426/combine_perfect_onemis_report_all/samtools
+
+samtools faidx ref.fasta 
+
+perl soap2sam.pl combine_flowcell53_lane8_vs_cdna.soapout > ./samtools/lane8/combine_flowcell53_lane8_vs_cdna.sam
+
+
+../samtools import /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619.fai combine_flowcell53_lane8_vs_cdna.sam combine_flowcell53_lane8_vs_cdna.bam
+
+#####################################################################################
+lane1:
+perl soap2sam.pl combine_flowcell53_lane1_vs_cdna.soapout > ./samtools/lane1/combine_flowcell53_lane1_vs_cdna.sam
+
+../samtools import /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619.fai combine_flowcell53_lane1_vs_cdna.sam combine_flowcell53_lane1_vs_cdna.bam
+
+../samtools sort combine_flowcell53_lane1_vs_cdna.bam combine_flowcell53_lane1_vs_cdna.sorted
+
+../samtools index combine_flowcell53_lane1_vs_cdna.sorted.bam
+
+../samtools tview combine_flowcell53_lane1_vs_cdna.sorted.bam /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619
+
+
+../samtools pileup -f /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619 -si combine_flowcell53_lane1_vs_cdna.sorted.bam
+
+
+../samtools pileup -f /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619 -s combine_flowcell53_lane1_vs_cdna.sorted.bam > combine_flowcell53_lane
+
+####################################################################################
+lane2:
+
+perl soap2sam.pl combine_flowcell53_lane2_vs_cdna.soapout > ./samtools/lane2/combine_flowcell53_lane2_vs_cdna.sam
+
+../samtools import /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619.fai combine_flowcell53_lane2_vs_cdna.sam combine_flowcell53_lane2_vs_cdna.bam
+
+../samtools sort combine_flowcell53_lane2_vs_cdna.bam combine_flowcell53_lane2_vs_cdna.sorted
+
+../samtools index combine_flowcell53_lane2_vs_cdna.sorted.bam
+
+../samtools tview combine_flowcell53_lane2_vs_cdna.sorted.bam /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619
+
+../samtools pileup -f /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619 -s combine_flowcell53_lane2_vs_cdna.sorted.bam > c
+
+####################################################################################
+
+lane3 
+
+../samtools tview combine_flowcell53_lane3_vs_cdna.sorted.bam /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619
+
+../samtools pileup -f /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619 -s combine_flowcell53_lane3_vs_cdna.sorted.bam > c
+
+
+
+####################################################################################
+lane5:
+
+perl soap2sam.pl combine_flowcell53_lane5_vs_cdna.soapout > ./samtools/lane5/combine_flowcell53_lane5_vs_cdna.sam
+
+../samtools import /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619.fai combine_flowcell53_lane5_vs_cdna.sam combine_flowcell53_lane5_vs_cdna.bam
+
+../samtools sort combine_flowcell53_lane5_vs_cdna.bam combine_flowcell53_lane5_vs_cdna.sorted
+
+../samtools index combine_flowcell53_lane5_vs_cdna.sorted.bam
+
+../samtools tview combine_flowcell53_lane5_vs_cdna.sorted.bam /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619
+
+
+../samtools pileup -f /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619 combine_flowcell53_lane5_vs_cdna.sorted.bam > c
+####################################################################################
+lane6:
+perl soap2sam.pl combine_flowcell53_lane6_vs_cdna.soapout > ./samtools/lane6/combine_flowcell53_lane6_vs_cdna.sam
+
+../samtools import /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619.fai combine_flowcell53_lane6_vs_cdna.sam combine_flowcell53_lane6_vs_cdna.bam
+
+../samtools sort combine_flowcell53_lane6_vs_cdna.bam combine_flowcell53_lane6_vs_cdna.sorted
+
+../samtools index combine_flowcell53_lane6_vs_cdna.sorted.bam
+
+../samtools tview combine_flowcell53_lane6_vs_cdna.sorted.bam /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619
+
+../samtools pileup -f /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619 -s combine_flowcell53_lane6_vs_cdna.sorted.bam > c
+####################################################################################
+lane7:
+
+perl soap2sam.pl combine_flowcell53_lane7_vs_cdna.soapout > ./samtools/lane7/combine_flowcell53_lane7_vs_cdna.sam
+
+../samtools import /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619.fai combine_flowcell53_lane7_vs_cdna.sam combine_flowcell53_lane7_vs_cdna.bam
+
+../samtools sort combine_flowcell53_lane7_vs_cdna.bam combine_flowcell53_lane7_vs_cdna.sorted
+
+../samtools index combine_flowcell53_lane7_vs_cdna.sorted.bam
+
+../samtools tview combine_flowcell53_lane7_vs_cdna.sorted.bam /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619
+
+../samtools pileup -f /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619 -s combine_flowcell53_lane7_vs_cdna.sorted.bam > c
+####################################################################################
+
+lane8:
+../samtools sort combine_flowcell53_lane8_vs_cdna.bam combine_flowcell53_lane8_vs_cdna.sorted
+
+../samtools index combine_flowcell53_lane8_vs_cdna.sorted.bam
+
+../samtools tview combine_flowcell53_lane8_vs_cdna.sorted.bam /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619
+
+../samtools pileup -f /mnt/disk2/kai/arabidopsis_index/cdna_index/TAIR9_cdna_20090619 -s combine_flowcell53_lane8_vs_cdna.sorted.bam > c
+
+
+

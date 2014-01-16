@@ -1,0 +1,138 @@
+##############
+#  man perlrun
+########################
+zcat WT_with_rdm15_1_sRNA_clean.fa.gz | head -10 | less | perl -ne  'BEGIN{$/=">"}  { @a= split "\n"; if(length($a[1])< 23 and length($a[1]) > 5 ) {print ">$a[0]\n$a[1]\n" } }' | less
+
+#must check whether the $/ can also appear in the quality.
+perl -ne  'BEGIN{$/="@HWI"}  { @a= split "\n"; if(length($a[1]) >  18 ) {print join("\n",@a) } }' 
+
+
+
+-lane
+
+
+ -n   causes Perl to assume the following loop around your program,
+            which makes it iterate over filename arguments somewhat like sed
+            -n or awk:
+
+              LINE:
+                while (<>) {
+                    ...             # your program goes here
+                }
+
+$/ The input record separator, newline by default.
+ -a   turns on autosplit mode when used with a -n or -p.  An implicit
+            split command to the @F array is done as the first thing inside
+            the implicit while loop produced by the -n or -p.
+
+                perl -ane 'print pop(@F), "\n";'
+
+            is equivalent to
+
+                while (<>) {
+                    @F = split(' ');
+                    print pop(@F), "\n";
+                }
+
+            An alternate delimiter may be specified using -F.
+-e aommand
+
+-l[octnum]
+            enables automatic line-ending processing.  It has two separate
+            effects.  First, it automatically chomps $/ (the input record
+            separator) when used with -n or -p.  Second, it assigns "$\" (the
+            output record separator) to have the value of octnum so that any
+            print statements will have that separator added back on.  If
+            octnum is omitted, sets "$\" to the current value of $/.  For
+            instance, to trim lines to 80 columns:
+
+                perl -lpe 'substr($_, 80) = ""'
+
+            Note that the assignment "$\ = $/" is done when the switch is
+            processed, so the input record separator can be different than the
+            output record separator if the -l switch is followed by a -0
+            switch:
+
+                gnufind / -print0 | perl -ln0e 'print "found $_" if -p'
+
+            This sets "$\" to newline and then sets $/ to the null character.
+
+
+
+##############
+# install module
+########################
+sudo perl -MCPAN -e shell
+
+install XXX
+
+#########
+# extract TE name
+##########
+less rdm16_2_CF_vs_WTCF_enriched_exp50_fold5_RB_annotated_TAIR10.txt 
+| perl -F"\t" -lane 'print $F[XX]' |  sort -u | perl -lane 'my @a = split ";"; print join("\n",@a)' | grep AT | less
+
+#####################################################################################################################
+samtools view Col0_CF_sRNA_NotOver_structural_RNA_sorted_uniq.bam| head -4 | perl -lane '$n{length($F[9])}++; END {foreach my $k (sort {$a<=>$b} keys %n){print join("\t", ($k, $n{$k}))}}' | less
+
+awk 'BEGIN {x=0}{if($4>=170){x++}} END {print x}' SRR037459_vs_intergenic.pileup
+
+awk 'BEGIN {x=0} {if ($5 ~ /\+/){x++}}END{print x}' sorted_position_ID_v2_with_strands_info.txt 
+
+awk  '{OFS="\t";print $1 OFS $2 OFS $3 OFS (sprintf ("%0.10u", $4)) OFS (sprintf ("%0.10u", $5)) OFS $6 OFS $7 OFS $8 OFS $9;};'
+
+time awk '{if ($2 == 1) {print $0}}' probe_4mismatch_hit_num.txt > one_hit.txt
+
+
+awk 'BEGIN {x=0} {x+=$4} END {print x} ' rdd_hyper_v1.4_WinSize500_gap1000_initialCutoff5_reportCutoff5.txt 
+205357
+
+
+less ros1_1_hyper_P0.01_reduced_boundary_both_depth100_WinSize1000_gap1000_initialCutoff5_reportCutoff10_annotated_TAIR10.txt | perl -F"\t" -lane 'print $F[7]' | less
+
+perl -F"\t" -lane 'print $F[7]' 
+
+
+
+change ^M
+perl -pi -e 's/\r/\n/g' <filename>
+
+less JKZ3_ros1-4_hypo.txt| cut -f1-3 | less| perl -lane '$c = join("\t",@F); print if($c eq $l); $l = $c' | less
+| perl -lane '$c = join("\t",@F[0..1]); print if($c eq $l); $l = $c' | less
+
+tail -1321 rrp6L1_vs_HMWT_CheckWhole_no_structural_RNA_500bp_HNA_depleted_exp100_fold2_24bp.txt | cut -f 1 | less | perl -lane ' if($F[0] =~ /(.*):(\d+)-(\d+)/)  { @a = ( "chr" . $1, $2, $3  ); print join("\t",@a)  }  ' | less
+
+##################
+		wrong
+#~/misc/Huiming_Zhang/13_Feb15_rrp6L1_smallRNA/db_17:49:07_N=512$ 
+#tail -1321 rrp6L1_vs_HMWT_CheckWhole_no_structural_RNA_500bp_HNA_depleted_exp100_fold2_24bp.txt | cut -f 1 | less | perl -lane ' if($F[0] =~ /(.*):(\d+)-(\d+)/)  { @a = ( "chr" . $1, $2, $3  ); print join("\t",@a)  }  ' | bedtools intersect -a rrp6L_vs_ColA_hypo_JacobsenMethod_Bin200_sliding50_gap100_BH_adj_p0.05_depth5_annotated_TAIR10absolute_CG50_CHG30_CHH20.txt -b stdin -wa | less
+###################
+
+cut -f 1-3 rrp6L_vs_ColA_hypo_JacobsenMethod_Bin200_sliding50_gap100_BH_adj_p0.05_depth5_annotated_TAIR10absolute_CG50_CHG30_CHH20.txt | closestBed -a stdin -b rrp6L1_vs_HMWT_CheckWhole_no_structural_RNA_500bp_HNA_depleted_exp100_fold2_24bp_bed.txt  -d -t first | sort -k7,7n | less
+
+
+
+for my $i(0..$last_index){
+	open($fhr[$i], "<" , $files[$i]) or die "$files[$i]";
+#	open($fhw[$i], ">" , $outputs[$i]) or die $outputs[$i], ": $!";
+}
+
+open( IN, "samtools view -h $input |") or die;
+open( NS ,  "| samtools view -b -S -  > $out_no_structural_RNA") or die;
+open( WS ,  "| samtools view -b -S -  > $out_with_structural_RNA") or die;
+open( NO ,  "| samtools view -b -S -  > $out_nomap") or die;
+
+
+sub simple_chr{
+	my ($chr) = @_;
+	$chr =~ s/\.fa//i;
+	if( $chr =~ /chr/i){
+		$chr =~  s/chr//i;
+	}
+	if($chr eq "M" ){
+		$chr = "Mt";
+	}elsif( $chr eq "C"){
+		$chr = "Pt";
+	}
+	return $chr;
+}
