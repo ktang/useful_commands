@@ -1,0 +1,84 @@
+ls *brat_bw_out* *mates[12]* *reads1* | less
+
+    8150 Col0_stage2_Rep1_mates1.txt
+    2945 Col0_stage2_Rep1_1_brat_bw_out.txt
+    1190 Col0_stage2_Rep1_1_brat_bw_out.txt.nodupl
+Mapped uniquely: 2945
+Unmapped: 3557
+Ambiguous: 1648
+map_reads is done
+sum of the three is     8150 Col0_stage2_Rep1_mates1.txt
+
+
+  128651 Col0_stage2_Rep1_mates2.txt
+   62267 Col0_stage2_Rep1_2_brat_bw_out.txt
+   28873 Col0_stage2_Rep1_2_brat_bw_out.txt.nodupl
+Mapped uniquely: 62267
+Unmapped: 38030
+Ambiguous: 28354
+map_reads is done
+
+
+Mapped uniquely pairs (pair count): 3221050							A
+Of them, with first mate being A-rich (from not original strands) (pair count): 0		B
+Broken pair: one mate is uniquely mapped, the other is unmapped (single-read count): 2877898	C
+Broken pair: one mate is uniquely mapped, the other is ambiguos (single-read count): 699182	D
+Broken pair: mates mapped to different chromosomes (pair count): 228082				E
+Broken pair: mates have wrong orientation (pair count): 21593					F
+Broken pair: mates have wrong inster size (pair count): 184978					G
+Unmapped pair: both mates are unmapped (pair count): 0						H	
+Ambiguous pair: both mates are ambiguous (pair count): 3621589					I
+map_reads is done
+
+14187414 Col0_stage2_Rep1_reads1.txt
+ 3221050 Col0_stage2_Rep1_paired_brat_bw_out.txt						A
+ 1386821 Col0_stage2_Rep1_paired_brat_bw_out.txt.nodupl
+ 3577080 Col0_stage2_Rep1_paired_brat_bw_out.txt.single_mates					C+D
+ 1425169 Col0_stage2_Rep1_paired_brat_bw_out.txt.single_mates.nodupl
+
+(3221050*2 + 3577080) / (14187414 * 2)
+> (3221050*2 + 3577080) / (14187414 * 2)
+[1] 0.353101
+##############################################################################################################################################################################################################################################################################################################
+
+ 28783640 total
+
+real	3m34.542s
+user	0m5.983s
+sys	0m4.665s
+
+26090 MG005-5A_nrpd1_BS_mates1.txt
+17248 MG005-5A_nrpd1_BS_1_brat_bw_out.txt
+11234 MG005-5A_nrpd1_BS_1_brat_bw_out.txt.nodupl
+Mapped uniquely: 17248
+Unmapped: 1539
+Ambiguous: 7303
+map_reads is done
+
+13684 MG005-5A_nrpd1_BS_mates2.txt
+ 8806 MG005-5A_nrpd1_BS_2_brat_bw_out.txt
+ 5690 MG005-5A_nrpd1_BS_2_brat_bw_out.txt.nodupl
+Mapped uniquely: 8806
+Unmapped: 1156
+Ambiguous: 3722
+map_reads is done
+
+
+24621836 MG005-5A_nrpd1_BS_reads1.txt
+14628398 MG005-5A_nrpd1_BS_paired_brat_bw_out.txt
+10686477 MG005-5A_nrpd1_BS_paired_brat_bw_out.txt.nodupl
+ 2423369 MG005-5A_nrpd1_BS_paired_brat_bw_out.txt.single_mates
+  962644 MG005-5A_nrpd1_BS_paired_brat_bw_out.txt.single_mates.nodupl
+Mapped uniquely pairs (pair count): 14628398
+Of them, with first mate being A-rich (from not original strands) (pair count): 0
+Broken pair: one mate is uniquely mapped, the other is unmapped (single-read count): 984988
+Broken pair: one mate is uniquely mapped, the other is ambiguos (single-read count): 1438381
+Broken pair: mates mapped to different chromosomes (pair count): 42307
+Broken pair: mates have wrong orientation (pair count): 115264
+Broken pair: mates have wrong inster size (pair count): 29355
+Unmapped pair: both mates are unmapped (pair count): 0
+Ambiguous pair: both mates are ambiguous (pair count): 6670935
+map_reads is done
+> (14628398 * 2 + 2423369) / (24621836*2)
+[1] 0.6433347
+
