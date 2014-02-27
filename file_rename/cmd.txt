@@ -1,34 +1,28 @@
-/Volumes/My_Book_2/raw_data_backup/Shanghai/201401013_datasets/ln_fq_17:30:11_N=522$ 
-ln -s /Volumes/My_Book_2/raw_data_backup/Shanghai/201401013_datasets/upload/Methylation_zhangh/Sample_17/17_CTTGTA_L00*gz .
+1 ln raw
+/Volumes/My_Book_2/raw_data_backup/Shanghai/20140213_Sample_XH_11:55:36_N=517$
+ ln -s $(pwd)/from_SH/140213_7001435_0087_BH7U90ADXX/*/*gz ln_fq_raw/
 
-ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "BS_S". $1. ".fq.gz"))} ' | xargs -n 2 echo
-17_CTTGTA_L001_R1_001.fastq.gz BS_S17_CTTGTA_L001_R1.fq.gz
-17_CTTGTA_L001_R2_001.fastq.gz BS_S17_CTTGTA_L001_R2.fq.gz
-17_CTTGTA_L002_R1_001.fastq.gz BS_S17_CTTGTA_L002_R1.fq.gz
-17_CTTGTA_L002_R2_001.fastq.gz BS_S17_CTTGTA_L002_R2.fq.gz
+2 change name
+ls *gz | perl -lane ' if( /(^\d\d_\S*_R[12])_001/ ) {print join(" ", ($_, "20140213_S". $1. ".fq.gz"))} elsif(/(^\d_\S*_R[12])_001/ ){print join(" ", ($_, "20140213_S0". $1. ".fq.gz")) } else{die $_}' | xargs -n 2 echo | less
 
-/Volumes/My_Book_2/raw_data_backup/Shanghai/201401013_datasets/ln_fq_17:53:14_N=529$ ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "BS_S". $1. ".fq.gz"))} ' | xargs -n 2 mv
-
-ln -s /Volumes/My_Book_2/raw_data_backup/Shanghai/201401013_datasets/upload/131216/Sample_*/*gz .
-
-#ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131216_S". $1. ".fq.gz"))} ' | less
-#ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131216_S". $1. ".fq.gz"))} ' | xargs -n 2 echo | less
-ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131216_S". $1. ".fq.gz"))} ' | xargs -n 2 mv
+ls *gz | perl -lane '$t= "2014XXXX"; if( /(^\d\d_\S*_R[12])_001/ ) {print join(" ", ($_, $t. "_S". $1. ".fq.gz"))} elsif(/(^\d_\S*_R[12])_001/ ){print join(" ", ($_, $t ."_S0". $1. ".fq.gz")) } else{die $_}' | xargs -n 2 echo | less
 
 
-ln -s /Volumes/My_Book_2/raw_data_backup/Shanghai/201401013_datasets/upload/131225/Sample_*/*gz .
-#ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131225_S". $1. ".fq.gz"))} ' | less
-ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131225_S". $1. ".fq.gz")) } ' | xargs -n 2 mv
+##########
+# one file per sample
+###########
+ls *L001*R1* >> ../raw_file_name.txt 
 
-#ls *gz | perl -lane ' if ( /(^\S+)_S(\d)_(\S+)/ ) {  print join(" ", ($_,  $1 . "_S0" . $2 . "_" . $3  ))  }  ' | less
-ls *gz | perl -lane ' if ( /(^\S+)_S(\d)_(\S+)/ ) {  print join(" ", ($_,  $1 . "_S0" . $2 . "_" . $3  ))  }  ' | xargs -n 2 mv
+create Excel
+combine two col =A2&"_"&B2
 
-############################
-time fastqc -o ../FastQC/ --nogroup -f fastq -t 8 *gz
-108min
+paste 3col to txt
 
 
-#ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131205_S". $1. ".fq.gz"))} ' | less
-ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131205_S". $1. ".fq.gz"))} ' | xargs -n 2 mv
+/Volumes/My_Book_2/raw_data_backup/Shanghai/20140213_Sample_XH/ln_fq_full_16:33:09_N=544$ /Users/tang58/Command/file_rename/rename_ln_fq.pl
+ . ../rename_sample_info.txt 
 
-time fastqc -o ../FastQC_upload2/ --nogroup -f fastq -t 8 *gz
+#time fastqc -o ../FastQC/ --nogroup -f fastq -t 6 *gz 2>> ../fastqc_log.txt &
+/Volumes/My_Book_2/raw_data_backup/Shanghai/20140213_Sample_XH/ln_fq_full_16:36:12_N=546$
+
+time fastqc -o ../FastQC/ --nogroup -f fastq -t 6 *gz 2>> ../fastqc_log.txt &

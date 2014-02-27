@@ -8,7 +8,7 @@ use utf8;#可以吗？
 use strict;
 use File::Spec;
 
-my $debug = 1;
+my $debug = 0;
 
 if($debug){
 	print STDERR "debug = 1\n\n";
@@ -42,7 +42,7 @@ while (<IN>) {
 	my ($label, $index, $file_name ) = split "\t";
 	check_index ( $index, $file_name );
 	
-	$label =~ s/-/_/g;
+	#$label =~ s/-/_/g;
 	$label =~ s/35s/35S/;
 	
 	if ( $file_name =~ /(\S+)_L00\d_R[12]\.fq\.gz$/ ) {
