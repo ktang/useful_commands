@@ -1,0 +1,26 @@
+
+# input chr and pos
+| perl -lane ' $gap = 105; $chr = "chrX"; $pos = ; next unless ($F[3] eq "$chr"); if( ( $F[9] >= $pos - $gap and $F[9]<= $pos + $gap ) or ($F[10] >= $pos - $gap and $F[10]<= $pos + $ga) ) {print} ' > 
+
+chr2:15312073 C=>T
+
+
+15312073
+
+15311973-15312173
+
+$F[10] >= 15311973 and $F[10]<= 15312173
+
+/Volumes/My_Book/35S_SUC2_background_BS_Seq/MG_ros1_22:20:47_N=521$ 
+time cat MG_ros1_paired_brat_bw_out.txt |  perl -lane ' next unless ($F[3] eq "chr2"); if( ( $F[9] >= 15311973 and $F[9]<= 15312173 ) or ($F[10] >= 15311973 and $F[10]<= 15312173) ) {print} ' > check_ros1_mutation/MG_ros1_paired_brat_bw_out_chr2_15311973_15312173.txt
+
+real	2m10.951s
+user	2m9.006s
+sys	0m4.152s
+
+15310726
+
+15310626_15310826
+15310626 15310826
+
+time cat MG_ros1_paired_brat_bw_out.txt |  perl -lane ' next unless ($F[3] eq "chr2"); if( ( $F[9] >= 15310626 and $F[9]<= 15310826 ) or ($F[10] >= 15310626 and $F[10]<= 15310826) ) {print} ' > check_ros1_mutation/MG_ros1_paired_brat_bw_out_chr2_15310626_15310826.txt

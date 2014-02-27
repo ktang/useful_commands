@@ -1,0 +1,5 @@
+/Volumes/Macintosh_HD_2/as_My_Book_for_mapping_output/BS_Seq/Daisuke_rdd_ros1/stat_process.txt
+
+time wc -l */*nodupl > stat_nodupl.txt
+
+less stat_nodupl.txt| perl -lane 'print $F[0]' | perl -ane '$i++;chomp;print $_ ; if($i%4==0){print "\n"}else{print "\t"} ' > tmp.txt

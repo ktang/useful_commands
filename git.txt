@@ -19,6 +19,6 @@ to pull the remote branch so that they are in sync.
 6to push up your master branch (change master to something else for a different branch):
 git push origin master
 
-git add
+git add .
 git commit -m "20140130"
 git push origin master

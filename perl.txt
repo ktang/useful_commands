@@ -1,8 +1,18 @@
+perl -d:ptkdb /Users/tang58/scripts_all/perl_code/Purdue/script_for_salt_adapted_cell_culture/step5.1_potential_polymorphisms_filter_v0.2.pl  debug.txt d1.txt d2.txt 19
+
 perl -ane 'chomp; '
 
 brat_bw stat see /Volumes/Macintosh_HD_2/as_My_Book_for_mapping_output/BS_Seq/Daisuke_rdd_ros1/stat_process.txt
 time wc -l */*nodupl > nodupl_stat.txt &
 less nodupl_stat.txt  | perl -lane 'print $F[0]' | perl -ane '$i++;chomp;print $_ ; if($i%4==0){print "\n"}else{print "\t"} ' > tmp.txt
+
+| perl -lane  '$i = 3; print if ($F[0] eq "chr");  next unless ($F[2] =~ /[AT]/); if($F[$i] =~ /DEP=(\d+);.+ALT=(\S+);PER=(\S+)/) { $dep = $1; @alts = split ",", $2; @pers = split ",", $3; if($dep>=8) { for $k (0..$#pers) { if($pers[$k]>= 30 and ( $alts[$k] eq "C" and $F[2] eq "A" or  $alts[$k] eq "G" and $F[2] eq "T")) {print} } } } ' | less
+
+
+##############################
+# small RNA
+############################## 
+| perl -lane 'BEGIN{%l=()} $i++; next if($i % 2 == 1); $l{length($_)}++; END{for $k (sort {$a<=>$b} keys %l) {print join("\t", ($k, $l{$k}))}} ' | less
 
 
 ##############

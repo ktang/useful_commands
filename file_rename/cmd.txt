@@ -1,0 +1,34 @@
+/Volumes/My_Book_2/raw_data_backup/Shanghai/201401013_datasets/ln_fq_17:30:11_N=522$ 
+ln -s /Volumes/My_Book_2/raw_data_backup/Shanghai/201401013_datasets/upload/Methylation_zhangh/Sample_17/17_CTTGTA_L00*gz .
+
+ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "BS_S". $1. ".fq.gz"))} ' | xargs -n 2 echo
+17_CTTGTA_L001_R1_001.fastq.gz BS_S17_CTTGTA_L001_R1.fq.gz
+17_CTTGTA_L001_R2_001.fastq.gz BS_S17_CTTGTA_L001_R2.fq.gz
+17_CTTGTA_L002_R1_001.fastq.gz BS_S17_CTTGTA_L002_R1.fq.gz
+17_CTTGTA_L002_R2_001.fastq.gz BS_S17_CTTGTA_L002_R2.fq.gz
+
+/Volumes/My_Book_2/raw_data_backup/Shanghai/201401013_datasets/ln_fq_17:53:14_N=529$ ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "BS_S". $1. ".fq.gz"))} ' | xargs -n 2 mv
+
+ln -s /Volumes/My_Book_2/raw_data_backup/Shanghai/201401013_datasets/upload/131216/Sample_*/*gz .
+
+#ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131216_S". $1. ".fq.gz"))} ' | less
+#ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131216_S". $1. ".fq.gz"))} ' | xargs -n 2 echo | less
+ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131216_S". $1. ".fq.gz"))} ' | xargs -n 2 mv
+
+
+ln -s /Volumes/My_Book_2/raw_data_backup/Shanghai/201401013_datasets/upload/131225/Sample_*/*gz .
+#ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131225_S". $1. ".fq.gz"))} ' | less
+ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131225_S". $1. ".fq.gz")) } ' | xargs -n 2 mv
+
+#ls *gz | perl -lane ' if ( /(^\S+)_S(\d)_(\S+)/ ) {  print join(" ", ($_,  $1 . "_S0" . $2 . "_" . $3  ))  }  ' | less
+ls *gz | perl -lane ' if ( /(^\S+)_S(\d)_(\S+)/ ) {  print join(" ", ($_,  $1 . "_S0" . $2 . "_" . $3  ))  }  ' | xargs -n 2 mv
+
+############################
+time fastqc -o ../FastQC/ --nogroup -f fastq -t 8 *gz
+108min
+
+
+#ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131205_S". $1. ".fq.gz"))} ' | less
+ls *gz | perl -lane ' if( /(^\S*_R[12])_001/ ) {print join(" ", ($_, "131205_S". $1. ".fq.gz"))} ' | xargs -n 2 mv
+
+time fastqc -o ../FastQC_upload2/ --nogroup -f fastq -t 8 *gz
