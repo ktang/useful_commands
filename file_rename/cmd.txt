@@ -3,26 +3,33 @@
  ln -s $(pwd)/from_SH/140213_7001435_0087_BH7U90ADXX/*/*gz ln_fq_raw/
 
 2 change name
-ls *gz | perl -lane ' if( /(^\d\d_\S*_R[12])_001/ ) {print join(" ", ($_, "20140213_S". $1. ".fq.gz"))} elsif(/(^\d_\S*_R[12])_001/ ){print join(" ", ($_, "20140213_S0". $1. ".fq.gz")) } else{die $_}' | xargs -n 2 echo | less
+#ls *gz | perl -lane ' if( /(^\d\d_\S*_R[12])_001/ ) {print join(" ", ($_, "20140213_S". $1. ".fq.gz"))} elsif(/(^\d_\S*_R[12])_001/ ){print join(" ", ($_, "20140213_S0". $1. ".fq.gz")) } else{die $_}' | xargs -n 2 echo | less
 
 ls *gz | perl -lane '$t= "2014XXXX"; if( /(^\d\d_\S*_R[12])_001/ ) {print join(" ", ($_, $t. "_S". $1. ".fq.gz"))} elsif(/(^\d_\S*_R[12])_001/ ){print join(" ", ($_, $t ."_S0". $1. ".fq.gz")) } else{die $_}' | xargs -n 2 echo | less
+
+
+ll| grep '>' | perl -lane 'print $F[-1]' | xargs -n 1 ls -lh | less
 
 
 ##########
 # one file per sample
 ###########
-ls *L001*R1* >> ../raw_file_name.txt 
+ls *L001*R1* > ../gz_file_name.txt 
 
 create Excel
 combine two col =A2&"_"&B2
 
+perl -pi -e 's/\r/\n/g' 
+
 paste 3col to txt
 
 
-/Volumes/My_Book_2/raw_data_backup/Shanghai/20140213_Sample_XH/ln_fq_full_16:33:09_N=544$ /Users/tang58/Command/file_rename/rename_ln_fq.pl
- . ../rename_sample_info.txt 
+/Volumes/My_Book_2/raw_data_backup/Shanghai/20140213_Sample_XH/ln_fq_full_16:33:09_N=544$ 
+/Users/tang58/Command/file_rename/rename_ln_fq.pl  . ../rename_sample_info.txt 
 
 #time fastqc -o ../FastQC/ --nogroup -f fastq -t 6 *gz 2>> ../fastqc_log.txt &
 /Volumes/My_Book_2/raw_data_backup/Shanghai/20140213_Sample_XH/ln_fq_full_16:36:12_N=546$
 
 time fastqc -o ../FastQC/ --nogroup -f fastq -t 6 *gz 2>> ../fastqc_log.txt &
+
+time fastqc -o ../FastQC_tmp --nogroup -f fastq -t 7 *gz 2>> ../fastqc_log_20140304_BS.txt &

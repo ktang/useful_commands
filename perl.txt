@@ -2,6 +2,11 @@ perl -d:ptkdb /Users/tang58/scripts_all/perl_code/Purdue/script_for_salt_adapted
 
 perl -ane 'chomp; '
 
+
+perl -pi -e 's/wt_(C\S+)_per/raw_wm$1_colA/g' 
+perl -pi -e 's/mut_(C\S+)_per/raw_wm$1_ago4/g'  
+
+
 brat_bw stat see /Volumes/Macintosh_HD_2/as_My_Book_for_mapping_output/BS_Seq/Daisuke_rdd_ros1/stat_process.txt
 time wc -l */*nodupl > nodupl_stat.txt &
 less nodupl_stat.txt  | perl -lane 'print $F[0]' | perl -ane '$i++;chomp;print $_ ; if($i%4==0){print "\n"}else{print "\t"} ' > tmp.txt
@@ -13,6 +18,11 @@ less nodupl_stat.txt  | perl -lane 'print $F[0]' | perl -ane '$i++;chomp;print $
 # small RNA
 ############################## 
 | perl -lane 'BEGIN{%l=()} $i++; next if($i % 2 == 1); $l{length($_)}++; END{for $k (sort {$a<=>$b} keys %l) {print join("\t", ($k, $l{$k}))}} ' | less
+
+##############################
+# gap between regions
+############################## 
+| perl -F"\t" -lane 'BEGIN{ ($l_c, $l_s, $l_e)= (0)x3 } {next if($F[0] eq "chr"); ($c,$s,$e)=@F[0..2];  if($c eq $l_c) {print join("\t",( $c,$s,$e, $s - $l_e))} ; $l_c=$c;$l_s=$s;$l_e=$e } ' | less
 
 
 ##############

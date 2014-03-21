@@ -1,0 +1,16 @@
+ls */*nodupl | less
+ time wc -l */*nodupl > stat_nodupl.txt &
+
+less stat_nodupl.txt| perl -lane 'print $F[0]' | perl -ane '$i++;chomp;print $_ ; if($i%4==0){print "\n"}else{print "\t"} ' >> tmp.txt
+
+####
+#2 raw data
+
+
+
+###########
+# 3 mapped data
+head -28 */*log* | less
+head -28 */*log* | perl -ane 'next unless (/^Mapped uniquely/ or /single-read/ ); if(/(\d+)$/) {push @a ,$1} else{die $_} if (/other is ambiguos/) {print join("\t",@a), "\n"; @a=()}' |less
+
+

@@ -19,7 +19,7 @@ TopHat v2.0.9
 
 brat_bw 2.0.1
 
-bedtools v2.17.0
+bedtools v2.17.0 => 2.19.0(as of Mar5,2014)
 
 samtools Version: 0.1.18 (r982:295)
 
