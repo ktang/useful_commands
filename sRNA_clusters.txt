@@ -1,0 +1,15 @@
+#########################################
+sRNA-cluster
+
+time samtools view -h AGO4_associated_sRNA_arial_GSM415787_bowtie_v0k100_NotOver_structural_RNA_sorted.bam | grep -E '^@|NH:i:1$' | samtools view -b -S -  > AGO4_associated_sRNA_arial_GSM415787_bowtie_v0k100_NotOver_structural_RNA_sorted_uniq.bam &
+
+
+time samtools view AGO4_associated_sRNA_arial_GSM415787_bowtie_v0k100_NotOver_structural_RNA_sorted_uniq.bam  | perl -lane ' print join("\t", (@F[2..3], $F[3] + length($F[9]) - 1 ) )  ' | grep -v t    > AGO4_associated_sRNA_arial_GSM415787_bowtie_v0k100_NotOver_structural_RNA_sorted_uniq_bed.txt 
+
+time bedtools merge  -i AGO4_associated_sRNA_arial_GSM415787_bowtie_v0k100_NotOver_structural_RNA_sorted_uniq_bed.txt -n | perl -lane 'print join("\t", ( @F[0..2], "." ,$F[3] ) ) if($F[-1] >= 3)' > 
+AGO4_associated_sRNA_arial_uniq_islands_N3.txt 
+
+time bedtools merge  -i AGO4_associated_sRNA_arial_uniq_islands_N3.txt -d 100 -n -scores sum > step2_group_AGO4_associated_sRNA_arial_uniq_islands_N3_d100.txt &
+
+less step2_group_AGO4_associated_sRNA_arial_uniq_islands_N3_d100.txt | perl -lane 'BEGIN{print join("\t", ("chr","start","end", "island_number", "sRNA_num"))} if( $F[-1]>=50 and   $F[2]-$F[1]+1>=100) {$F[0] = "chr". $F[0]; print join("\t", @F)}' > AGO4_associated_sRNA_1210loci_len100_sRNA50.txt
+
