@@ -51,5 +51,6 @@ sort -n file | awk ' { a[i++]=$1;  s+=$1 }   END { mean = s/i; print "mean:", me
 
 sort -g | awk ' { a[i++]=$1;  s+=$1 }   END { print i;mean = s/i; print "mean:", mean; print a[int(i*0.75)]; print a[int(i/2)]; print a[int(i*0.25)];}'
 awk ' BEGIN{OFS = "\t" } { a[i++]=$1;  s+=$1 }   END { mean = s/i; print i, mean, a[int(i*0.75)], a[int(i/2)], a[int(i*0.25)];}'
+awk ' BEGIN{OFS = "\t" } { a[i++]=$1;  s+=$1 }   END { mean = s/i; print i, mean, a[int(i*0.75)], a[int(i/2)], a[int(i*0.25)], a[int(i*0.1)] , a[int(i*0.05)], a[int(i*0.01)];}'
 
  | perl -F"\t" -lane 'BEGIN{ $l_chr= "0", $l_end = "1" } { if($F[0] eq $l_chr){ print $F[1] - $l_end   }  $l_chr= $F[0], $l_end = $F[2]   }' | sort -g | awk ' BEGIN{OFS = "\t" } { a[i++]=$1;  s+=$1 }   END { mean = s/i; print i, mean, a[int(i*0.75)], a[int(i/2)], a[int(i*0.25)];}'

@@ -5,6 +5,7 @@ less stat_nodupl.txt| perl -lane 'print $F[0]' | perl -ane '$i++;chomp;print $_ 
 
 ####
 #2 raw data
+head -7  *S02*R1*/fastqc_data.txt | less
 
 
 

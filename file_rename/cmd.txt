@@ -33,3 +33,6 @@ paste 3col to txt
 time fastqc -o ../FastQC/ --nogroup -f fastq -t 6 *gz 2>> ../fastqc_log.txt &
 
 time fastqc -o ../FastQC_tmp --nogroup -f fastq -t 7 *gz 2>> ../fastqc_log_20140304_BS.txt &
+
+
+time fastqc -o ../FastQC_tmp --nogroup -f fastq -t 8 *gz 2>> ../fastqc_log_2014XXXX_BS.txt &
