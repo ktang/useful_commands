@@ -19,7 +19,10 @@ ls *L001*R1* > ../gz_file_name.txt
 create Excel
 combine two col =A2&"_"&B2
 
-perl -pi -e 's/\r/\n/g' 
+
+perl -pi -e 's/\r/\n/g'
+
+perl -pi -e 's/\r/\n/g' Rename_sample_info.txt
 
 paste 3col to txt
 
@@ -36,3 +39,23 @@ time fastqc -o ../FastQC_tmp --nogroup -f fastq -t 7 *gz 2>> ../fastqc_log_20140
 
 
 time fastqc -o ../FastQC_tmp --nogroup -f fastq -t 8 *gz 2>> ../fastqc_log_2014XXXX_BS.txt &
+time fastqc -o ../FastQC_tmp --nogroup -f fastq -t XX *gz 2>  /dev/null &
+
+time fastqc -o ../FastQC_tmp --nogroup -f fastq -t XX *gz 2>  /dev/null &
+
+#################################################################################################################################################################################################################################
+# 1, combine files
+/Volumes/My_Book_2/raw_data_backup/Shanghai/20140325/140325_7001435_0093_AH87TTADXX_12:51:20_N=512$
+ time /Users/tang58/scripts_all/perl_code/tools/batch_cat_fq_for_SH_downloaded_raw_data.pl .
+
+ ~5-6mins per sample
+
+#2, ln -s fq files
+
+
+ls *gz | perl -lane '$t= "2014XXXX"; if( /(^\d\d_\S*_R[12])\.fq.gz$/ ) {print join(" ", ($_, $t. "_S". $1. ".fq.gz"))} elsif(/(^\d_\S*_R[12])\.fq.gz$/ ){print join(" ", ($_, $t ."_S0". $1. ".fq.gz")) } else{die $_}' | xargs -n 2 echo | less
+
+ls *R1*gz > ../gz_file_name.txt 
+
+/Users/tang58/Command/file_rename/rename_ln_fq_v0.1.pl  . ../Rename_sample_info.txt 
+

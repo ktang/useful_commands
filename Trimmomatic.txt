@@ -1,0 +1,1 @@
+time java -classpath ~/bin/trimmomatic-0.32.jar org.usadellab.trimmomatic.TrimmomaticPE -phred33 -threads XXX  XXR1.fq.gz XXXR2.fq.gz L_1P.fq.gz L_1U.fq.gz L_2P.fq.gz L_2U.fq  HEADCROP:6  LEADING:30  TRAILING:30 ILLUMINACLIP:/Users/tang58/bin/adapter.fa:2:40:10 SLIDINGWINDOW:4:15 MINLEN:30

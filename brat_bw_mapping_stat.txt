@@ -3,3 +3,7 @@
 time wc -l */*nodupl > stat_nodupl.txt
 
 less stat_nodupl.txt| perl -lane 'print $F[0]' | perl -ane '$i++;chomp;print $_ ; if($i%4==0){print "\n"}else{print "\t"} ' > tmp.txt
+
+
+#tail -111832 GB03_BS_0320_forw.txt | less
+tail -109864 GB03_BS_0320_rev.txt | less

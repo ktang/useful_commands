@@ -1,12 +1,17 @@
+ls | grep BS | \less
+
+
 ls */*nodupl | less
  time wc -l */*nodupl > stat_nodupl.txt &
 
 less stat_nodupl.txt| perl -lane 'print $F[0]' | perl -ane '$i++;chomp;print $_ ; if($i%4==0){print "\n"}else{print "\t"} ' >> tmp.txt
 
+
 ####
 #2 raw data
 head -7  *S02*R1*/fastqc_data.txt | less
 
+head -7  *R1*/fastqc_data.txt | less
 
 
 ###########
